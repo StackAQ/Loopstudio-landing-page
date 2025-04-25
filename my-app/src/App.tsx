@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import {
   FaBars,
-  FaCross,
   FaFacebook,
   FaXTwitter,
   FaPinterest,
@@ -57,12 +56,25 @@ const App: React.FC = () => {
             </button>
           </nav>
           {isOpen && (
-            <div className="absolute top-0 left-0 h-screen w-full z-50 bg-black p-3 grid gap-8">
+            <div className="absolute top-0 left-0 w-full z-50 bg-black p-6 grid gap-20 lg:hidden">
               <div className="flex justify-between items-center">
-                <h1 className="font-semibold text-3xl">loopstudios</h1>
-                <button onClick={toggleMenu}>
-                  <FaCross />
+                <h1 className="font-semibold text-2xl sm:text-3xl text-white">
+                  loopstudios
+                </h1>
+                <button className="text-2xl text-white" onClick={toggleMenu}>
+                  X
                 </button>
+              </div>
+              <div className="grid gap-4 text-white text-lg sm:text-xl uppercase">
+                {navLinks.map((e, index) => (
+                  <a
+                    key={index}
+                    href=""
+                    className="hover:text-gray-400 transition duration-300"
+                  >
+                    {e.name}
+                  </a>
+                ))}
               </div>
             </div>
           )}
@@ -81,10 +93,10 @@ const App: React.FC = () => {
           alt=""
         />
         <div className="p-8 bg-white text-center max-w-full lg:max-w-[60%] lg:text-left lg:absolute lg:bottom-0 lg:right-8">
-          <h1 className="text-5xl uppercase font-light py-8 lg:text-4xl">
+          <h1 className="text-3xl uppercase font-light py-8 lg:text-4xl">
             The leader in interactive VR
           </h1>
-          <p className="text-2xl text-gray-500 font-medium lg:text-lg">
+          <p className="text-xl text-gray-500 font-medium lg:text-lg">
             Founded in 2011, Loopstudios has been producing world-className
             virtual reality projects for some of the best companies around the
             globe. Our award-winning creations have transformed businesses
@@ -98,7 +110,7 @@ const App: React.FC = () => {
           <h1 className="text-2xl sm:text-3xl lg:text-4xl uppercase">
             our creations
           </h1>
-          <button className="hidden lg:block px-6 py-1 text-sm sm:text-lg border-2 border-black">
+          <button className="cursor-pointer px-6 py-1 text-sm sm:text-lg border-2 border-black">
             SEE ALL
           </button>
         </div>
