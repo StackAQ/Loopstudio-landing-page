@@ -27,6 +27,8 @@ const creations = [
   { img: "/image-fisheye.jpg", name: "MAKE IT FISHEYE" },
 ];
 
+import {motion} from "framer-motion";
+
 const App: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const toggleMenu = () => {
@@ -78,11 +80,16 @@ const App: React.FC = () => {
               </div>
             </div>
           )}
-          <div className="border-2 border-white p-4 lg:w-1/3">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            className="border-2 border-white p-4 lg:w-1/3"
+          >
             <h1 className="uppercase text-5xl lg:text-6xl">
               immersive experiences that deliver
             </h1>
-          </div>
+          </motion.div>
         </div>
       </div>
 
@@ -92,7 +99,12 @@ const App: React.FC = () => {
           className="max-w-full mx-auto lg:mx-0"
           alt=""
         />
-        <div className="p-8 bg-white text-center max-w-full lg:max-w-[60%] lg:text-left lg:absolute lg:bottom-0 lg:right-8">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          className="p-8 bg-white text-center max-w-full lg:max-w-[60%] lg:text-left lg:absolute lg:bottom-0 lg:right-8"
+        >
           <h1 className="text-3xl uppercase font-light py-8 lg:text-4xl">
             The leader in interactive VR
           </h1>
@@ -102,22 +114,33 @@ const App: React.FC = () => {
             globe. Our award-winning creations have transformed businesses
             through digital experiences that bind to their brand.
           </p>
-        </div>
+        </motion.div>
       </div>
 
       <div className="px-4 py-8 lg:p-20 grid gap-8">
-        <div className="flex items-center justify-between">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          className="flex items-center justify-between"
+        >
           <h1 className="text-2xl sm:text-3xl lg:text-4xl uppercase">
             our creations
           </h1>
           <button className="cursor-pointer px-6 py-1 text-sm sm:text-lg border-2 border-black">
             SEE ALL
           </button>
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-10">
           {creations.map((e, index) => (
-            <div className="relative" key={index}>
+            <motion.div
+              className="relative"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1 }}
+              key={index}
+            >
               <img
                 src={e.img}
                 className="h-40 sm:h-48 md:h-56 lg:h-full object-center object-cover w-full"
@@ -126,7 +149,7 @@ const App: React.FC = () => {
               <h1 className="text-lg sm:text-xl lg:text-3xl text-white absolute top-[50%] sm:top-[60%] lg:top-[80%] lg:w-2/3 left-4">
                 {e.name}
               </h1>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
